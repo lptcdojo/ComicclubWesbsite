@@ -1,0 +1,20 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+<div align="center">
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/news?Name=">Blog</a></li>
+<li><a href="/reviews/">Game Reviews</a></li>
+</ul>
+</div>
+{% for item in data%}
+<p><a href="http://localhost:8080/test?Name={{item._id}}">{{item.title}}: {{item.msg}}</a></p>
+{%else%}
+<p>There is nothing</p>
+{% endfor %}
+<form method="GET" action="/news"><input name="Name"><!-- input name="task"><input name="message"><input type="submit"--></form>
+</body>
+</html>
