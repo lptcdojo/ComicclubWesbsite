@@ -18,7 +18,7 @@ nunjucks.configure('templates', {
 	express: app
 });
 app.get('/', (req,res) => {
-	res.redirect("/html/Menu.html")
+	res.redirect("/news?Name=")
 })
 
 app.get('/reviews', (req,res) => {
@@ -31,8 +31,8 @@ app.get('/news', (req,res) => {
 	.on('data', (data) => {
 		results = JSON.parse(data)
 		console.log("Rex Sneeze")
-		console.log(data)
-		res.render("news.html", {'data': results})
+		console.log(results)
+		res.render("ComicClub/Home/index.html", {'data2': results})
 	})	
 });
 app.get("/test", (req,res) => {
@@ -84,7 +84,7 @@ app.get('/api/news/title', (req,res) =>{
 	var data = new RegExp(name)
 	console.log(data);
 	db.find({title: data}, function (err,docs) {
-		console.log(docs)
+		console.log('Data Sent')
 		res.status(200).json(docs)
 		});
 		});
